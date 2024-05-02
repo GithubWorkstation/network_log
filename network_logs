@@ -1,0 +1,15 @@
+Date-Time: 2024-05-02 08:00:00
+Device: Switch 01
+Port: 1
+Inbound Bandwidth Usage (Mbps): 100
+Outbound Bandwidth Usage (Mbps): 120
+Total Packets Received: 1500
+Total Packets Sent: 1300
+
+Date-Time: 2024-05-02 08:00:00
+Device: Switch 01
+Port: 2
+Inbound Bandwidth Usage (Mbps): 90
+Outbound Bandwidth Usage (Mbps): 110
+Total Packets Received: 1400
+Total Packets Sent: 1250
