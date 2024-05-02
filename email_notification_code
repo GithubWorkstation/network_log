@@ -1,0 +1,35 @@
+import smtplib
+from email.mime.text import MIMEText
+
+def send_email_alert(subject, message, to_email):
+    # SMTP server configuration
+    smtp_server = 'smtp.example.com'
+    smtp_port = 587
+    smtp_user = 'your-email@example.com'
+    smtp_password = 'your-password'
+
+    # Constructing the email
+    msg = MIMEText(message)
+    msg['Subject'] = subject
+    msg['From'] = smtp_user
+    msg['To'] = to_email
+
+    # Sending the email
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(smtp_user, smtp_password)
+            server.sendmail(smtp_user, to_email, msg.as_string())
+            print("Email sent successfully!")
+    except Exception as e:
+        print("Failed to send email:", e)
+
+# Example use
+if __name__ == '__main__':
+    # Define suspicious activity condition
+    if suspicious_activity_detected():
+        send_email_alert("Suspicious Activity Detected",
+                         "Suspicious network activity has been detected on the system.",
+                         "admin@example.com")
